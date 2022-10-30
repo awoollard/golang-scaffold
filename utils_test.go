@@ -7,15 +7,16 @@ import (
 	"testing/fstest"
 )
 
+// TestGetSha Test the GetSha utility function
 func TestGetSha(t *testing.T) {
 	// Arrange
 	fs := fstest.MapFS{
-		"git_hash": {
+		"git.sha": {
 			// Include a newline at the end of the hash since this actually mirrors the behaviour of the docker command specified in the Dockerfile
 			Data: []byte("7cb10c4122663100eb60d2ab3a256297df963a07\n"),
 		},
 	}
-	data, err := fs.Open("git_hash")
+	data, err := fs.Open("git.sha")
 	if err != nil {
 		panic(err)
 	}
@@ -29,6 +30,7 @@ func TestGetSha(t *testing.T) {
 	assert.Equal(t, "7cb10c4122663100eb60d2ab3a256297df963a07", output)
 }
 
+// TestGetMetadata Test the GetMetadata utility function
 func TestGetMetadata(t *testing.T) {
 	// Arrange
 	fs := fstest.MapFS{
@@ -53,6 +55,7 @@ func TestGetMetadata(t *testing.T) {
 	assert.Equal(t, "1.2", output.Version)
 }
 
+// TestGetMetadataFailure Test the GetMetadata utility function with an already read and closed file handle
 func TestGetMetadataFailure(t *testing.T) {
 	// Arrange
 	fs := fstest.MapFS{

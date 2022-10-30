@@ -8,10 +8,10 @@ WORKDIR /app
 COPY . /app
 COPY meta.json /
 
-RUN git rev-parse HEAD > /git_hash
+RUN git rev-parse HEAD > /git.sha
 
 # Run command as described:
-# go build will build an executable file named server in the current directory
+# go build will build an executable file named server in the root directory
 RUN go build -o /server
 
 EXPOSE 80
