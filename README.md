@@ -103,3 +103,6 @@ There are a variety of ways this repository can be improved. Here's a few:
 * [Docker BuildX](https://docs.docker.com/engine/reference/commandline/buildx/) custom build hooks were investigated for their usage in injecting the SHA hash to the filesystem but this proved heavy-handed and in the end a simple `RUN` command in the `Dockerfile` proved sufficient.
 * More unit tests - could abstract out the file structs using interfaces such that the `/status` endpoint handler could be properly tested.
 * The artefact published to GHCR could have more tags. For example, it could be possible to tag artefacts with a `pull-request` tag or a `release` tag depending on which Git branch the code was published from.
+
+## Output
+![Sample output](https://i.imgur.com/Snnuril.png "Output")
